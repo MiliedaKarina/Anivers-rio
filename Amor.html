@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Estilos específicos para esta página */
+    .pagina-amor {
+      text-align: center;
+      padding: 50px 20px;
+      background: linear-gradient(135deg, #fff0f5 0%, #f8e1f4 100%);
+      min-height: 100vh;
+    }
+    
+    .mensagem-amor {
+      font-size: 3rem;
+      font-weight: bold;
+      margin: 30px 0;
+      transition: all 0.5s ease;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .botao-voltar {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 12px 25px;
+      background-color: #a64d79;
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.3s;
+    }
+    
+    .botao-voltar:hover {
+      transform: translateY(-3px);
+    }
+  </style>
+</head>
+<body class="pagina-amor">
+  <div id="mensagem-container" class="mensagem-amor">Clique no meu coração</div>
+  
+  <div class="coracao-container">
+    <img src="https://cdn-icons-png.flaticon.com/512/210/210545.png" 
+         alt="Coração" 
+         id="coracao" 
+         class="coracao-pulsante"
+         onclick="iniciarShowAmor()">
+  </div>
+  
+  <a href="index.html" class="botao-voltar">Voltar ao Site</a>
+
+  <audio id="musica-angel" loop>
+    <source src="/audio/loveu.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // Lista de "Eu te amo" em 20 línguas
+    const amores = [
+      "Eu te amo (Português)",
+      "I love you (Inglês)",
+      "Je t'aime (Francês)",
+      "Ti amo (Italiano)",
+      "Te quiero (Espanhol)",
+      "Ich liebe dich (Alemão)",
+      "愛してる (Japonês)",
+      "사랑해 (Coreano)",
+      "أحبك (Árabe)",
+      "Я тебя люблю (Russo)",
+      "Σ' αγαπώ (Grego)",
+      "ฉันรักคุณ (Tailandês)",
+      "Ik hou van jou (Holandês)",
+      "Jag älskar dig (Sueco)",
+      "Mahal kita (Filipino)",
+      "ฉันรักคุณ (Tailandês)",
+      "我爱你 (Mandarim)",
+      "मैं तुमसे प्यार करता हूँ (Hindi)",
+      "Tôi yêu bạn (Vietnamita)",
+      "Seni seviyorum (Turco)"
+    ];
+
+    let intervaloAmor;
+    const mensagem = document.getElementById('mensagem-container');
+    const musica = document.getElementById('musica-angel');
+
+    function iniciarShowAmor() {
+      // Toca a música (volume baixo inicial)
+      musica.volume = 0.5;
+      musica.play();
+      
+      // Começa a trocar mensagens
+      let index = 0;
+      intervaloAmor = setInterval(() => {
+        mensagem.textContent = amores[index];
+        mensagem.style.color = getRandomColor();
+        index = (index + 1) % amores.length;
+      }, 1500); // Muda a cada 1.5 segundos
+      
+      // Remove o coração após o clique
+      document.getElementById('coracao').style.display = 'none';
+    }
+
+    function getRandomColor() {
+      const cores = ['#ff6b6b', '#a64d79', '#ffb347', '#47b8ff', '#8a2be2', '#ff1493'];
+      return cores[Math.floor(Math.random() * cores.length)];
+    }
+  </script>
+</body>
+</html>

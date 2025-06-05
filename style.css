@@ -1,0 +1,317 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+body {
+  font-family: 'Poppins', serif;
+  background-color: #fff6f6;
+  padding: 20px;
+  max-width: 700px;
+  margin: auto;
+}
+
+h1, h2, h3, p{
+	color: #a64d79;
+}
+
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.video-background video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  
+  /* Efeito desfoque e claridade */
+  filter: blur(8px) brightness(0.7);
+}
+/* Para mais desfoque */
+   filter: blur(12px) brightness(0.6);
+   
+   /* Para overlay mais claro */
+   background: rgba(255, 246, 246, 0.9);
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 240, 245, 0.85);
+  mix-blend-mode: soft-light;
+}
+
+/* Garante que o conteúdo fique acima */
+body {
+  position: relative;
+  background: transparent !important;
+}
+
+@media (max-width: 414px) {
+     .video-background video {
+       filter: blur(5px) brightness(0.7);
+     }
+     .video-overlay {
+       background: rgba(255, 240, 245, 0.9);
+     }
+   }
+.youtube-player {
+  top: 20px;
+  right: 20px;
+  width: 350px; /* Largura aumentada */
+  height: 150px; /* Altura aumentada */
+  z-index: 1000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+  border: 2px solid #a64d79;
+}
+
+.youtube-player iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+@media (max-width: 414px) {
+  .youtube-player {
+    width: 95%;
+    height: 120px;
+    left: 2.5%;
+    right: 2.5%;
+    top: 10px;
+  }
+}
+
+
+}
+.evento {
+  margin-bottom: 20px;
+  border-left: 3px solid #a64d79;
+  padding-left: 10px;
+}
+
+.carta {
+  background-color: #fff0f5;
+  border: 1px solid #a64d79;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 40px;
+  font-style: italic;
+}
+
+.caixa-presente {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.caixa-presente img {
+  max-width: 120px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.caixa-presente img:hover {
+  transform: scale(1.1);
+}
+
+.pedido {
+  text-align: center;
+  display: none;
+  margin-top: 20px;
+}
+
+.pedido img {
+  max-width: 150px;
+  margin: 20px 0;
+}
+
+.botao {
+  display: inline-block;
+  background-color: #a64d79;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.botao:hover {
+  background-color: #802a58;
+}
+
+.comemoracao {
+  display: none;
+  text-align: center;
+  margin-top: 30px;
+  font-size: 24px;
+  color: #a64d79;
+}
+
+
+/* Efeito de confete */
+.confete {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  opacity: 0.8;
+  animation: cair 3s linear forwards;
+  z-index: 1000;
+}
+
+@keyframes cair {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
+
+/* Estilos da seção infantil */
+.memoria-infantil {
+  background-color: #fff0f5;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 40px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(166, 77, 121, 0.1);
+}
+
+
+.foto-container {
+  position: relative;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.foto-crianca {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #a64d79;
+  transition: all 0.5s ease;
+}
+
+.foto-crianca:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(166, 77, 121, 0.4);
+}
+
+.mensagem-flutuante {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #a64d79;
+  color: white;
+  padding: 10px 10px;
+  border-radius: 30px;
+  font-size: 14px;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.foto-container:hover .mensagem-flutuante {
+  bottom: -15px;
+  opacity: 1;
+}
+
+/* Efeito de polaroid (opcional) */
+.foto-container::before {
+  content: "";
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  background: white;
+  z-index: -1;
+  top: -10px;
+  left: -10px;
+  transform: rotate(3deg);
+  opacity: 0.7;
+}
+
+/* Estilos do coração pulsante */
+.coracao-pulsante {
+  width: 60px;
+  cursor: pointer;
+  animation: pulsar 2s infinite;
+  transition: transform 0.3s;
+}
+
+.coracao-pulsante:hover {
+  transform: scale(1.1);
+}
+
+@keyframes pulsar {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.coracao-container {
+  margin: 10px;
+}
+
+/* Link Página Amor */
+.link-pagina-amor {
+  text-align: center;
+  margin: 30px 0;
+}
+/* Animação da caixa */
+.caixa-animada {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  max-width: 120px;
+  display: block;
+  margin: 0 auto;
+}
+
+.caixa-animada:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Efeito especial ao clicar */
+.caixa-animada:active {
+  transform: scale(0.95);
+}
+
+.container-carta {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.imagem-carta {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  display: block;
+  margin: 0 auto;
+  max-height: 80vh;
+}
+.container-carta {
+  background: rgba(255, 240, 245, 0.5);
+  padding: 20px;
+  border-radius: 12px;
+  display: inline-block;
+  margin: 30px auto;
+  border: 1px dashed #a64d79;
+}
+#footer{
+	justify-content: center;
+	align-items: center;
+}
+
